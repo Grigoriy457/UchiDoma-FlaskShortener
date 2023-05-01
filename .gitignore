@@ -1,0 +1,5 @@
+.env
+/app/db.db
+
+.idea/
+__pycache__/
