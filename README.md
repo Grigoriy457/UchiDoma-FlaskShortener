@@ -42,6 +42,6 @@ Make long urls shorter.
     flusk run
     ```
    - Production server ([more info](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04)):
-```commandline
-gunicorn --bind 0.0.0.0:5000 app
-```
+   ```commandline
+   gunicorn --bind 0.0.0.0:5000 app
+   ```
