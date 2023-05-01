@@ -1,6 +1,6 @@
 # Flask shortener
 
-Make long urls shorter.
+Keep long URLs shorter.
 
 ## How to run
 
