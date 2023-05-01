@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Укорачиватель ссылок
+{% endblock title %}
+
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Укорачиватель ссылок</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Исходная ссылка</th>
+        <th scope="col">Короткая ссылка</th>
+        <th scope="col">Дата создания</th>
+        <th scope="col">Количество переходов</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for url_row in urls %}
+      <tr>
+        <th scope="row">{{ url_row.id }}</th>
+        <td>
+          <a href="{{ url_row.original_url }}">{{ url_row.original_url }}</a>
+        </td>
+        <td>
+          <a href="/{{ url_row.short }}" target="_blank">
+            {{ origin_url }}{{ url_row.short }}
+          </a>
+        </td>
+        <td>{{ url_row.created_at.strftime('%d.%m.%Y %H:%M:%S') }}</td>
+        <td>{{ url_row.visits }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+  document.getElementById("nav-urls").classList.add("active");
+</script>
+{% endblock content %}

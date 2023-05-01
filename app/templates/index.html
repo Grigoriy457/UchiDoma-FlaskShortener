@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Укорачиватель ссылок
+{% endblock title %}
+
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Укорачиватель ссылок</h1>
+  <form method="POST" action="/" novalidate>
+    {{ form.csrf_token }}
+
+    <div class="mb-3">
+      <label for="original-url" class="form-label">{{ form.original_url.label }}</label>
+      {{ form.original_url(class="form-control") }}
+    </div>
+
+    {% for error in form.original_url.errors %}
+    <div class="alert alert-danger" role="alert">
+      <span>{{ error }}</span>
+    </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary mb-3">Получить короткую ссылку</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("nav-home").classList.add("active");
+</script>
+{% endblock content %}
